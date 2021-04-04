@@ -26,12 +26,12 @@ const Name = () => <Image
 />
 
 const LogoWrap = styled(Box)({
+    paddingTop: '30px',
     width: '300px',
     height: '140px',
 })
 
 const H2Wrap = styled(Box)({
-    paddingTop: '10px',
     width: '210px',
     height: '40px',
     align: 'center',
@@ -73,10 +73,11 @@ const OfferComponent = () => {
 
     const useStyles = makeStyles((theme) => ({
         root: {
+            paddingTop: '20px',
             align: 'center',
         },
         contact: {
-            paddingTop: '60px',
+            paddingTop: '20px',
         },
     }));
 
@@ -84,6 +85,17 @@ const OfferComponent = () => {
 
     return (
         <React.Fragment>
+            <Grid item xs={12} md={12} className={classes.root}>
+                <div align='center'>
+                    <Image
+                        src="/avatar.png"
+                        alt="avatar_PILPROD"
+                        width={300}
+                        height={300}
+                        className={classes.logo}
+                    />
+                </div>
+            </Grid>
             <Grid item xs={12} md={12} className={classes.root}>
                 <div align='center'>
                     <Link className={classes.logoWrap}
@@ -101,31 +113,13 @@ const OfferComponent = () => {
                     </Link>
                 </div>
             </Grid>
-            <Grid item xs={12} md={12} className={classes.root}>
-                <div align='center'>
-                    <Image
-                        src="/avatar.png"
-                        alt="avatar_PILPROD"
-                        width={300}
-                        height={300}
-                        className={classes.logo}
-                    />
-                </div>
-            </Grid>
             <Grid item xs={12} md={12} align='center'>
-                    <Link
-                        href="/"
-                        // target="_blank"
-                        rel="noopener noreferrer"
-                        align='center'
-                    >
-                        <div align='center'>
-                            <H2Wrap>
-                                <Name />
-                                <h2 style={{ opacity: '.0', margin: '0', padding: '0' }}>ILYA POPOV</h2>
-                            </H2Wrap>
-                        </div>
-                    </Link>
+                <div align='center'>
+                    <H2Wrap>
+                        {/* <Name /> */}
+                        <h2 style={{ opacity: '.0', margin: '0', padding: '0' }}>ILYA POPOV</h2>
+                    </H2Wrap>
+                </div>
             </Grid>
             <Grid container align="center" className={classes.contact}>
                 <Grid item xs={6} md={6} >
