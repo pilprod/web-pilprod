@@ -73,7 +73,7 @@ const OfferComponent = () => {
 
     const useStyles = makeStyles((theme) => ({
         root: {
-            paddingTop: '20px',
+            paddingTop: '15px',
             align: 'center',
         },
         contact: {

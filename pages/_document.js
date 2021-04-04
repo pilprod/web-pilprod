@@ -16,7 +16,7 @@ class MyDocument extends Document {
     return (
       <Html lang="ru">
         <Head>
-          <meta name="theme-color" content={theme.palette.background.paper} />
+          <meta name="theme-color" content={theme.palette.background.default} />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"

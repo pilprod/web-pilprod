@@ -11,6 +11,7 @@ import cyan from '@material-ui/core/colors/cyan';
 // Set Color
 const primary = cyan[400];
 const secondary = cyan[600];
+const background = '#121212';
 
 // Set styles
 const styles = (theme) => ({
@@ -27,7 +28,10 @@ const theme = createMuiTheme({
     },
     secondary: {
       main: secondary,
-    }
+    },
+    background: {
+      default: background,
+    },
   },
   typography: {
     fontFamily: [

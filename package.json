@@ -1,7 +1,7 @@
 {
     "name": "web-pilprod",
     "description": "Front-End Next.js PILPROD (www.pilprod.com)",
-    "version": "1.1.0",
+    "version": "1.0.3",
     "private": true,
     "scripts": {
         "dev": "next dev",
