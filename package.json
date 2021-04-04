@@ -1,0 +1,32 @@
+{
+    "name": "web-pilprod",
+    "description": "Front-End Next.js PILPROD (www.pilprod.com)",
+    "version": "1.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "docker": "docker build . -t ghcr.io/pilprod/web-pilprod:latest && docker run --name web-pilprod -p 80:80 -d ghcr.io/pilprod/web-pilprod:latest",
+        "push": "docker build . -t ghcr.io/pilprod/web-pilprod:latest && docker push ghcr.io/pilprod/web-pilprod:latest"
+    },
+    "dependencies": {
+        "@material-ui/core": "^4.11.3",
+        "axios": "^0.21.1",
+        "fg-loadcss": "^3.1.0",
+        "next": "^10.0.9",
+        "pwa": "^1.9.7",
+        "react": "17.0.2",
+        "react-dom": "17.0.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pilprod/web-pilprod.git"
+    },
+    "author": "PILPROD",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/pilprod/web-pilprod/issues"
+    },
+    "homepage": "https://github.com/pilprod/web-pilprod#readme"
+}
