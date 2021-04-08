@@ -10,11 +10,13 @@ const CopyrightComponent = (props) => {
     return (
         <Typography variant="body2">
             {'Copyright © '}
+            {''}
             <Link color="inherit" href="http://telegram.pilprod.com">
-                Popov Ilya
+                {' Popov Ilya'}
             </Link>{' Production '}
             {new Date().getFullYear()}
             {'  '}
+
         </Typography>
     )
 }

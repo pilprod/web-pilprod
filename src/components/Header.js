@@ -1,151 +1,187 @@
 // React
 import React from 'react';
+// Props
+import PropTypes from 'prop-types';
 // Next.js
 import Image from 'next/image';
 // Material-UI
 import {
+    styled,
     makeStyles,
+    withStyles,
+    Box,
+    Grid,
     Container,
     Toolbar,
     Link,
-    Hidden
+    Hidden,
+    Button,
 } from '@material-ui/core';
 
+const Logo = () => <Image
+    src="/logo.svg"
+    alt="PILPROD"
+    width={300}
+    height={100}
+/>
 
-const PCToolBar = () => {
+const LogoWrap = styled(Box)({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '300px',
+    height: '100px',
+})
 
-    const useStyles = makeStyles((theme) => ({
-        appBar: {
-            flexGrow: '1',
-            backgroundColor: theme.palette.background.paper,
-            borderBottom: `1px solid ${theme.palette.divider}`,
-        },
-        toolbar: {
-            // flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            overflowX: 'auto',
-            flexShrink: 0,
-        },
-        logoWrap: {
-            flexGrow: 1,
-        },
-        link: {
-            margin: theme.spacing(1, 2.5, 1),
-            align: 'center'
-        },
-        logo: {
-            align: 'center',
-            // height: '4rm',
-        },
-        toolbarSecondary: {
-            width: '100%',
-            justifyContent: 'space-between',
-            overflowX: 'auto',
-        },
-        toolbarLink: {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: 'auto',
-            padding: theme.spacing(1),
-            flexShrink: 0,
-        },
-        toolbarIcon: {
-            margin: '2px',
-            padding: '6px',
-        },
-    }));
+const HeaderBox = styled(Box)(({ theme }) => ({
+}));
 
-    const classes = useStyles();
+const HeaderToolbarLogo = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    align: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+}));
+
+const HeaderToolbar = styled(Toolbar)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: '5px',
+    // borderTop: `1px solid ${theme.palette.divider}`,
+    // borderBottom: `1px solid ${theme.palette.divider}`,
+}));
+
+const HeaderTitle = styled(({ ...other }) => <Container align='center' {...other} />)({
+    padding: '10px',
+    justifyContent: 'center',
+    alignItems: 'center',
+});
+
+const HeaderLink = styled(Link)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 'auto',
+    padding: theme.spacing(0),
+    flexShrink: 0,
+}));
+
+const HeaderLinkIcon = styled(Box)(({ theme }) => ({
+    margin: '5px',
+    padding: '5px',
+}));
+
+
+
+
+
+
+const HeaderComponent = (props) => {
 
     return (
         <React.Fragment >
-            <Container maxWidth='lg' component='header' >
-                <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
-                    <Link variant="button" color="textPrimary" href="http://instagram.pilprod.com" className={classes.toolbarLink}>
-                        <div className={classes.toolbarIcon}>
+            <HeaderBox component='header'>
+                <HeaderToolbarLogo>
+                    <HeaderTitle>
+                        <Link href='/'>
+                            <LogoWrap>
+                                <Logo />
+                                <h1 style={{ width: '0px', height: '0px', opacity: '.0', margin: '0', padding: '0' }}>PILPROD | Popov Ilya Production</h1>
+                            </LogoWrap>
+                        </Link>
+                    </HeaderTitle>
+                </HeaderToolbarLogo>
+                <HeaderToolbar variant='dense'>
+                    <HeaderLink
+                        variant="button"
+                        color="textPrimary"
+                        href="http://instagram.pilprod.com"
+                    >
+                        <HeaderLinkIcon>
                             <Image
                                 src="/icons/instagram.svg"
                                 alt="pilprod_instagram"
                                 width={25}
                                 height={25}
                             />
-                        </div>
+                        </HeaderLinkIcon>
                         <Hidden smDown>
                             Instagram
                         </Hidden>
-                    </Link>
-                    <Link
+                    </HeaderLink>
+                    <HeaderLink
                         color="textPrimary"
                         noWrap
                         variant="button"
                         href='http://vk.pilprod.com'
-                        className={classes.toolbarLink}
                     >
-                        <div className={classes.toolbarIcon}>
+                        <HeaderLinkIcon>
                             <Image
                                 src="/icons/vk.svg"
                                 alt="pilprod_vk"
                                 width={30}
                                 height={30}
                             />
-                        </div>
+                        </HeaderLinkIcon>
                         <Hidden smDown>
                             VK
                         </Hidden>
-                    </Link>
-                    <Link variant="button" color="textPrimary" href="http://youtube.pilprod.com" className={classes.toolbarLink}>
-                        <div className={classes.toolbarIcon}>
+                    </HeaderLink>
+                    <HeaderLink
+                        variant="button"
+                        color="textPrimary"
+                        href="http://youtube.pilprod.com"
+                    >
+                        <HeaderLinkIcon>
                             <Image
                                 src="/icons/youtube.svg"
                                 alt="pilprod_youtube"
                                 width={30}
                                 height={30}
                             />
-                        </div>
+                        </HeaderLinkIcon>
                         <Hidden smDown>
                             YouTube
                         </Hidden>
-                    </Link>
-                    <Link variant="button" color="textPrimary" href="http://soundcloud.pilprod.com" className={classes.toolbarLink}>
-                        <div className={classes.toolbarIcon}>
+                    </HeaderLink>
+                    <HeaderLink
+                        variant="button"
+                        color="textPrimary"
+                        href="http://soundcloud.pilprod.com"
+                    >
+                        <HeaderLinkIcon>
                             <Image
                                 src="/icons/soundcloud.svg"
                                 alt="pilprod_soundcloud"
                                 width={30}
                                 height={30}
                             />
-                        </div>
+                        </HeaderLinkIcon>
                         <Hidden smDown>
                             SoundCloud
                         </Hidden>
-                    </Link>
-                    <Link variant="button" color="textPrimary" href="http://tiktok.pilprod.com" className={classes.toolbarLink}>
-                        <div className={classes.toolbarIcon}>
+                    </HeaderLink>
+                    <HeaderLink
+                        variant="button"
+                        color="textPrimary"
+                        href="http://tiktok.pilprod.com"
+                    >
+                        <HeaderLinkIcon>
                             <Image
                                 src="/icons/tiktok.svg"
                                 alt="pilprod_tiktok"
                                 width={25}
                                 height={25}
                             />
-                        </div>
+                        </HeaderLinkIcon>
                         <Hidden smDown>
                             TikTok
                         </Hidden>
-                    </Link>
-                </Toolbar>
-            </Container>
+                    </HeaderLink>
+                </HeaderToolbar>
+            </HeaderBox>
         </React.Fragment >
-    )
-
-
-}
-
-const HeaderComponent = () => {
-    return (
-        <React.Fragment>
-            <PCToolBar />
-        </React.Fragment>
     )
 }
 

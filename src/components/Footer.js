@@ -2,33 +2,28 @@
 import React from 'react';
 // Material-UI
 import {
-    makeStyles,
-    Box
+    styled,
+    Box,
 } from '@material-ui/core';
+// Components
 import CopyrightComponent from './Copyright';
+
+
+const Footer = styled(Box)({
+    width: '100%',
+    height: '100px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+})
 
 const FooterComponent = (props) => {
 
-    const useStyles = makeStyles((theme) => ({
-        root: {
-            width: '100%',
-            height: '100px',
-            // borderTop: '1px solid #eaeaea',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-        }
-    }));
-
-    const classes = useStyles();
-
     return (
         <React.Fragment>
-            <footer>
-                <Box component="div" className={classes.root}>
-                    <CopyrightComponent />
-                </Box>
-            </footer>
+            <Footer component="footer">
+                <CopyrightComponent />
+            </Footer>
         </React.Fragment>
     )
 }

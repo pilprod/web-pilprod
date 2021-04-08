@@ -20,7 +20,7 @@ const PageLayout = ({ children, title, description, ogImage, url }) => {
             <Head>
                 {/* ROOT TITLE and description */}
                 <title>{title ? title : "PILPROD | Popov Ilya Production"}</title>
-                <meta name="description" key="description" content={description ? description : "PILPROD | Popov Ilya Production — Контактная информация: Instagram, VK, YouTube, SoundCloud, Tik-Tok, Telegram, WhatsApp"} />
+                <meta name="description" key="description" content={description ? description : "PILPROD | Popov Ilya Production — Instagram, VK, YouTube, SoundCloud, Tik-Tok, Telegram, WhatsApp."} />
                 {/* Favicons */}
                 <link rel="icon" href="/favicons/favicon.ico" />
                 <link rel="icon" href="/favicons/favicon-16x16.png" type="image/png" sizes="16x16" />

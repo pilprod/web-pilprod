@@ -7,35 +7,24 @@ import {
     makeStyles,
     styled,
     Box,
+    Container,
     Grid,
     Link
 } from '@material-ui/core';
 
-const Logo = () => <Image
-    src="/logo.svg"
-    alt="PILPROD"
+const Avatar = () => <Image
+    src="/avatar.png"
+    alt="avatar_PILPROD"
     width={300}
-    height={100}
+    height={300}
 />
 
-const Name = () => <Image
-    src="/name.svg"
-    alt="Ilya Popov"
-    width={255}
-    height={100}
-/>
-
-const LogoWrap = styled(Box)({
-    paddingTop: '30px',
-    width: '300px',
-    height: '140px',
-})
-
-const H2Wrap = styled(Box)({
-    width: '210px',
-    height: '40px',
-    align: 'center',
-})
+const AvatarContainer = styled(({ ...other }) =>
+    <Container
+        maxWidth='lg'
+        align='center'
+        {...other} />
+)({});
 
 const TelegramLink = styled(Link)({
     display: 'flex',
@@ -45,7 +34,7 @@ const TelegramLink = styled(Link)({
     flexShrink: 0,
     variant: "button",
     color: '#0088cc',
-    fontSize: '14pt',
+    fontSize: '12pt',
 })
 
 const TelegramLinkIcon = styled(Box)({
@@ -61,7 +50,7 @@ const WhatsAppLink = styled(Link)({
     flexShrink: 0,
     variant: "button",
     color: '#25D366',
-    fontSize: '14pt',
+    fontSize: '12pt',
 })
 
 const WhatsAppLinkIcon = styled(Box)({
@@ -70,85 +59,44 @@ const WhatsAppLinkIcon = styled(Box)({
 })
 
 const OfferComponent = () => {
-
-    const useStyles = makeStyles((theme) => ({
-        root: {
-            paddingTop: '15px',
-            align: 'center',
-        },
-        contact: {
-            paddingTop: '20px',
-        },
-    }));
-
-    const classes = useStyles();
-
     return (
         <React.Fragment>
-            <Grid item xs={12} md={12} className={classes.root}>
-                <div align='center'>
-                    <Image
-                        src="/avatar.png"
-                        alt="avatar_PILPROD"
-                        width={300}
-                        height={300}
-                        className={classes.logo}
-                    />
-                </div>
-            </Grid>
-            <Grid item xs={12} md={12} className={classes.root}>
-                <div align='center'>
-                    <Link className={classes.logoWrap}
-                        href="/"
-                        // target="_blank"
-                        rel="noopener noreferrer"
-                        align='center'
-                    >
-                        <div align='center'>
-                            <LogoWrap>
-                                <Logo />
-                                <h1 style={{ opacity: '.0', margin: '0', padding: '0' }}>PILPROD | Popov Ilya Production</h1>
-                            </LogoWrap>
-                        </div>
-                    </Link>
-                </div>
-            </Grid>
-            <Grid item xs={12} md={12} align='center'>
-                <div align='center'>
-                    <H2Wrap>
-                        {/* <Name /> */}
-                        <h2 style={{ opacity: '.0', margin: '0', padding: '0' }}>ILYA POPOV</h2>
-                    </H2Wrap>
-                </div>
-            </Grid>
-            <Grid container align="center" className={classes.contact}>
-                <Grid item xs={6} md={6} >
-                    <TelegramLink href='http://telegram.pilprod.com'>
-                        <TelegramLinkIcon>
-                            <Image
-                                src="/icons/telegram.svg"
-                                alt="telegram_logo"
-                                width={30}
-                                height={30}
-                            />
-                        </TelegramLinkIcon>
-                        <h3>TELEGRAM</h3>
-                    </TelegramLink>
-                </Grid>
-                <Grid item xs={6} md={6}>
-                    <WhatsAppLink href='http://whatsapp.pilprod.com/'>
-                        <WhatsAppLinkIcon>
-                            <Image
-                                src="/icons/whatsapp.svg"
-                                alt="whatsapp_logo"
-                                width={30}
-                                height={30}
-                            />
-                        </WhatsAppLinkIcon>
-                        <h3>WHATSAPP</h3>
-                    </WhatsAppLink>
-                </Grid>
-            </Grid>
+            <Box padding='5px'>
+                <AvatarContainer>
+                    <Avatar />
+                </AvatarContainer>
+                <h2 style={{ width: '0px', height: '0px', opacity: '.0', margin: '0', padding: '0' }}>ILYA POPOV</h2>
+                <Box style={{ padding: '5px', paddingTop: '30px', paddingDown: '20px' }}>
+                    <Grid container direction='row' justify='center' alignItems='baseline'>
+                        <Grid item xs={6} md={4}>
+                            <WhatsAppLink href='http://whatsapp.pilprod.com/'>
+                                <WhatsAppLinkIcon>
+                                    <Image
+                                        src="/icons/whatsapp.svg"
+                                        alt="whatsapp_logo"
+                                        width={30}
+                                        height={30}
+                                    />
+                                </WhatsAppLinkIcon>
+                                <h3>WHATSAPP</h3>
+                            </WhatsAppLink>
+                        </Grid>
+                        <Grid item xs={6} md={4}>
+                            <TelegramLink href='http://telegram.pilprod.com'>
+                                <TelegramLinkIcon>
+                                    <Image
+                                        src="/icons/telegram.svg"
+                                        alt="telegram_logo"
+                                        width={30}
+                                        height={30}
+                                    />
+                                </TelegramLinkIcon>
+                                <h3>TELEGRAM</h3>
+                            </TelegramLink>
+                        </Grid>
+                    </Grid>
+                </Box>
+            </Box>
         </React.Fragment >
     )
 }
