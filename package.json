@@ -7,6 +7,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
+        "postbuild": "next-sitemap --config next.sitemap.js",
         "docker": "docker build . -t ghcr.io/pilprod/web-pilprod:latest && docker run --name web-pilprod -p 80:3000 -d ghcr.io/pilprod/web-pilprod:latest",
         "push": "docker build . -t ghcr.io/pilprod/web-pilprod:latest && docker push ghcr.io/pilprod/web-pilprod:latest"
     },
@@ -15,6 +16,7 @@
         "axios": "^0.21.1",
         "fg-loadcss": "^3.1.0",
         "next": "^10.0.9",
+        "next-sitemap": "^1.6.20",
         "pwa": "^1.9.7",
         "react": "17.0.2",
         "react-dom": "17.0.2"
