@@ -95,7 +95,7 @@ class Form extends React.Component {
         event.preventDefault();
         const option = {
             method: 'POST',
-            url: 'https://api.pilprod.com/form/send',
+            url: process.env.API_URL,
             data: this.state,
         }
         this.setState({ status: "Одну минуту..." });
