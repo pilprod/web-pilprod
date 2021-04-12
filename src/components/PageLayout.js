@@ -10,11 +10,12 @@ import Footer from "./Footer";
 // Data
 // import { data } from "../data/data";
 
-const PageLayout = ({ children, title, description, ogImage, url }) => {
+const PageLayout = ({ children, title, description, ogImage, vkImage, url }) => {
     // Root URL
     const pageUrl = "https://www.pilprod.com/";
     // When you share this page on facebook you'll see this image
     const ogImg = "https://www.pilprod.com/favicons/share-image-1200x630.png";
+    const vkImg = "https://www.pilprod.com/favicons/share-image-510x228.png";
     return (
         <>
             <Head>
@@ -33,6 +34,10 @@ const PageLayout = ({ children, title, description, ogImage, url }) => {
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
                 <meta property="og:description" content={description ? description : "PILPROD | Popov Ilya Production — Instagram, VK, YouTube, SoundCloud, Tik-Tok, Telegram, WhatsApp."} key="og:description" />
+                {/* VK Image Open Graph */}
+                <meta property="vk:image" content={vkImage ? vkImage : vkImg}/>
+                <meta property="vk:image:width" content="510" />
+                <meta property="vk:image:height" content="228" />
                 {/* PWA */}
                 <link rel="manifest" href="/manifest.json" />
             </Head>
