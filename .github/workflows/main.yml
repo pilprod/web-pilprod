@@ -8,14 +8,15 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     env:
-      # YC_TYPE_TOKEN: oauth
       YC_CR_ID: crpl0u6n26tru58eva57
+      YC_IMAGE_NAME: web-pilprod
+      YC_TYPE_TOKEN: json_key
     steps:
-      - 
-        name: Set user ENV
-        id: step_1
-        run: |
-          echo "YC_TYPE_TOKEN=oauth" >> $GITHUB_ENV
+      # - 
+      #   name: Set user ENV
+      #   id: step_1
+      #   run: |
+      #     echo "YC_TYPE_TOKEN=oauth" >> $GITHUB_ENV
       -
         name: Checkout
         id: step_2
@@ -43,7 +44,7 @@ jobs:
         with:
           registry: cr.yandex
           username: ${{ env.YC_TYPE_TOKEN }}
-          password: ${{ secrets.YC_TOKEN }}
+          password: ${{ secrets.YC_TOKEN_JSON }}
       -
         name: Build and push
         id: step_7
@@ -52,8 +53,6 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          # Tags set YC_CR_ID
           tags: |
             ghcr.io/${{ github.repository }}:latest
-            cr.yandex/${{ env.YC_CR_ID }}:latest
-          # tags: ghcr.io/${{ github.repository_owner }}/web-pilprod:latest ${{ github.repository_owner }}, cr.yandex/crpl0u6n26tru58eva57/web-pilprod:latest
+            cr.yandex/${{ env.YC_CR_ID }}/${{ env.YC_IMAGE_NAME}}:latest
