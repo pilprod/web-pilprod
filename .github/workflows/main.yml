@@ -1,10 +1,8 @@
 name: CI
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  
+    branches: [ $default-branch ]
+    
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -30,8 +28,8 @@ jobs:
         uses: docker/login-action@v1 
         with:
           registry: cr.yandex
-          username: oauth
-          password: ${{ secrets.YC_OAUTH }}
+          username: ${{ secrets.YC_TYPE_TOKEN }}
+          password: ${{ secrets.YC_TOKEN }}
       -
         name: Build and push
         uses: docker/build-push-action@v2
@@ -41,7 +39,6 @@ jobs:
           push: true
           # Tags set YC_CR_ID
           tags: |
-            ghcr.io/pilprod/web-pilprod:latest
-            ghcr.io/pilprod/web-pilprod:1.0.0
-            cr.yandex/crpl0u6n26tru58eva57/web-pilprod:latest
-            cr.yandex/crpl0u6n26tru58eva57/web-pilprod:1.0.0
+            ghcr.io/${{ github.repository }}:latest
+            cr.yandex/${{ secrets.YC_CR_ID }}:latest
+          # tags: ghcr.io/${{ github.repository_owner }}/web-pilprod:latest ${{ github.repository_owner }}, cr.yandex/crpl0u6n26tru58eva57/web-pilprod:latest
