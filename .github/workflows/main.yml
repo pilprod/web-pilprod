@@ -37,7 +37,7 @@ jobs:
         uses: docker/login-action@v1 
         with:
           registry: cr.yandex
-          username: ${{ env.YC_TYPE_TOKEN }}
+          username: ${{ env.YC_TOKEN_TYPE }}
           password: ${{ secrets.YC_TOKEN_JSON }}
       -
         name: Build and Push Image to GitHub and Yandex.Cloud
