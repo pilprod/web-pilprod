@@ -41,5 +41,5 @@ jobs:
           # Tags set YC_CR_ID
           tags: |
             ghcr.io/${{ github.repository }}:latest
-            cr.yandex/${{ secrets.YC_CR_ID }}:latest
+            "cr.yandex/${{ secrets.YC_CR_ID }}:latest"
           # tags: ghcr.io/${{ github.repository_owner }}/web-pilprod:latest ${{ github.repository_owner }}, cr.yandex/crpl0u6n26tru58eva57/web-pilprod:latest
