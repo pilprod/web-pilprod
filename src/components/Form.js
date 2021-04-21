@@ -93,20 +93,29 @@ class Form extends React.Component {
     // Event Send
     handleSubmit = async event => {
         event.preventDefault();
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL
+        const formSend = '/form/send'
+        const jsonBody = {
+            contacts: {
+                name: this.state.name,
+                phone: this.state.phone,
+            },
+            message: this.state.message
+        }
         const option = {
             method: 'POST',
-            url: process.env.API_URL,
-            data: this.state,
+            url: apiUrl + formSend,
+            data: jsonBody
         }
         this.setState({ status: "Одну минуту..." });
         axios(option)
             .then((res) => {
                 if (res.data.success === true) {
-                    // alert("Спасибо! Скоро мы всяжемся с вами.");
+                    // alert("Спасибо! Скоро я свяжусь с вами.");
                     this.setState({ name: "", phone: "", message: "", status: "Спасибо! Скоро я свяжусь с вами." });
                 } else if (res.data.success === false) {
-                    // alert("Что-то пошло не так! Повторите ошибку позже.");
-                    this.setState({ name: "", phone: "", message: "", status: "Что-то пошло не так! Повторите ошибку позже." });
+                    // alert("Что-то пошло не так! Повторите попытку позже.");
+                    this.setState({ name: "", phone: "", message: "", status: "Что-то пошло не так! Повторите попытку позже." });
                 }
             });
     }

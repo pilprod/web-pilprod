@@ -5,6 +5,6 @@ module.exports = {
   },
   generateBuildId: async () => {
     // You can, for example, get the latest git commit hash here
-    return process.env.ROOT_NAME
+    return process.env.NEXT_PUBLIC_PROJECT_NAME
   },
 }
