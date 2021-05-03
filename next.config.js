@@ -1,5 +1,5 @@
 module.exports = {
-    // Using Webpack 5
+    // Using Webpack 5 
     future: {
         webpack5: true,
     },
