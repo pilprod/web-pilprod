@@ -106,6 +106,10 @@ class Form extends React.Component {
         const option = {
             method: 'POST',
             url: apiUrl + formSend,
+            headers: {
+                'Access-Control-Allow-Origin': true,
+                'Content-Type': "application/json"
+            },
             data: jsonBody
         }
         this.setState({status: "Одну минуту..."});
