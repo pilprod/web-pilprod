@@ -95,7 +95,7 @@ class Form extends React.Component {
     handleSubmit = async event => {
         event.preventDefault();
         const apiUrl = process.env.NEXT_PUBLIC_API_URL
-        const formSend = '/form' + '?send=' + process.env.NEXT_PUBLIC_PROJECT_DOMAIN
+        const formSend = '/form' + '?send=mail'
         const jsonBody = {
             contacts: {
                 name: this.state.name,
