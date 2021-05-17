@@ -61,10 +61,10 @@ const SubmitButton = (props) => {
         size='large'
         variant='contained'
         type='submit'
-    // onClick={props.onClick}
+        // onClick={props.onClick}
     >
         {props.buttonText}
-    </ButtonOK>
+    </ ButtonOK>
 }
 
 class Form extends React.Component {
@@ -79,22 +79,23 @@ class Form extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
+
     // Event Change
     handleChange = event => {
         const field = event.target.id;
         if (field === 'name') {
-            this.setState({ name: event.target.value });
+            this.setState({name: event.target.value});
         } else if (field === 'phone') {
-            this.setState({ phone: event.target.value });
+            this.setState({phone: event.target.value});
         } else if (field === 'message') {
-            this.setState({ message: event.target.value });
-        };
+            this.setState({message: event.target.value});
+        }
     }
     // Event Send
     handleSubmit = async event => {
         event.preventDefault();
         const apiUrl = process.env.NEXT_PUBLIC_API_URL
-        const formSend = '/form/send'
+        const formSend = '/form' + '?send=' + process.env.NEXT_PUBLIC_PROJECT_DOMAIN
         const jsonBody = {
             contacts: {
                 name: this.state.name,
@@ -107,49 +108,65 @@ class Form extends React.Component {
             url: apiUrl + formSend,
             data: jsonBody
         }
-        this.setState({ status: "Одну минуту..." });
+        this.setState({status: "Одну минуту..."});
         axios(option)
             .then((res) => {
                 if (res.data.success === true) {
                     // alert("Спасибо! Скоро я свяжусь с вами.");
-                    this.setState({ name: "", phone: "", message: "", status: "Спасибо! Скоро я свяжусь с вами." });
+                    this.setState({name: "", phone: "", message: "", status: "Спасибо! Скоро я свяжусь с вами."});
                 } else if (res.data.success === false) {
                     // alert("Что-то пошло не так! Повторите попытку позже.");
-                    this.setState({ name: "", phone: "", message: "", status: "Что-то пошло не так! Повторите попытку позже." });
+                    this.setState({
+                        name: "",
+                        phone: "",
+                        message: "",
+                        status: "Что-то пошло не так! Повторите попытку позже."
+                    });
                 }
             });
     }
-    render(props) {
+
+    render() {
         return (
             <React.Fragment>
                 <form onSubmit={this.handleSubmit}>
-                    <Box paddingBottom='15px' align='center' justifyContent='center'>
+                    <Box paddingBottom='15px'
+                         align='center'
+                         justifyContent='center'>
                         <Grid item xs={12} md={4}>
-                            <Name handleChange={this.handleChange} />
+                            <Name handleChange={this.handleChange}/>
                         </Grid>
                     </Box>
-                    <Box paddingBottom='15px' align='center' justifyContent='center'>
-                        <Grid item xs={12} md={4}>
-                            <Phone handleChange={this.handleChange} />
+                    <Box paddingBottom='15px'
+                            align='center'
+                            justifyContent='center'>
+                        <Grid item xs={12}
+                                 md={4}>
+                            <Phone handleChange={this.handleChange}/>
                         </Grid>
                     </Box>
-                    <Box paddingBottom='15px' align='center' justifyContent='center'>
-                        <Grid item xs={12} md={4}>
-                            <Message handleChange={this.handleChange} />
-                        </Grid>
-                    </Box>
-                    <Box paddingTop='15px' align='center' justifyContent='center'>
-                        <Grid item xs={12} md={4}>
-                            <SubmitButton buttonText={this.state.status} />
-                        </Grid>
+                    <Box paddingBottom='15px'
+                        align='center'
+                        justifyContent='center'>
+                    <Grid item xs={12}
+                             md={4}>
+                        <Message handleChange={this.handleChange}/>
+                    </Grid>
+                </Box>
+                    <Box paddingTop='15px'
+                        align='center'
+                        justifyContent='center'>
+                    <Grid item xs={12} md={4}>
+                        <SubmitButton buttonText={this.state.status}/>
+                    </Grid>
                     </Box>
                 </form>
-            </React.Fragment >
+            </React.Fragment>
         )
     }
 }
 
-const FormComponent = (props) => {
+const FormComponent = () => {
 
     const useStyles = makeStyles((theme) => ({
         form: {
@@ -183,12 +200,12 @@ const FormComponent = (props) => {
                 <Box className={classes.inputWrap}>
                     <Grid item container spacing={8}>
                         <Grid item xs={12} md={12}>
-                            <Form />
+                            <Form/>
                         </Grid>
                     </Grid>
                 </Box>
             </div>
-        </React.Fragment >
+        </React.Fragment>
     )
 }
 

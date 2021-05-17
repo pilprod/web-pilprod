@@ -7,9 +7,9 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     env:
-      YC_CR_ID: crpl0u6n26tru58eva57
-      YC_IMAGE_NAME: web-pilprod
-      YC_TOKEN_TYPE: json_key
+      # YC_CR_ID: crpl0u6n26tru58eva57
+      # YC_IMAGE_NAME: web-pilprod
+      # YC_TOKEN_TYPE: json_key
       IMAGE_TAG_NAME: production
     steps:
       -

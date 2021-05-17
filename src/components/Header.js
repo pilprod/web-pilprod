@@ -162,7 +162,7 @@ const HeaderComponent = (props) => {
                             SoundCloud
                         </Hidden>
                     </HeaderLink>
-                    <HeaderLink
+                    {/* <HeaderLink
                         variant="button"
                         color="textPrimary"
                         href="http://tiktok.pilprod.com"
@@ -178,7 +178,7 @@ const HeaderComponent = (props) => {
                         <Hidden smDown>
                             TikTok
                         </Hidden>
-                    </HeaderLink>
+                    </HeaderLink> */}
                 </HeaderToolbar>
             </HeaderBox>
         </React.Fragment >
