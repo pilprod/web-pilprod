@@ -12,7 +12,7 @@ import {
     Link
 } from '@material-ui/core';
 // Root Component
-import PageLayout from '../src/components/PageLayout';
+import PageLayout from '../../src/components/PageLayout';
 
 const Avatar = () => <Image
     src="/avatar.png"
@@ -60,7 +60,7 @@ const ContactLinkIcon = styled(Box)({
     padding: '5px',
 })
 
-const HomePage = () => {
+const ResumePage = () => {
     return (
         <React.Fragment>
             <PageLayout
@@ -108,4 +108,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage;
+export default ResumePage;

@@ -131,6 +131,23 @@ const HeaderComponent = (props) => {
                     <HeaderLink
                         variant="button"
                         color="textPrimary"
+                        href="https://github.com/pilprod"
+                    >
+                        <HeaderLinkIcon>
+                            <Image
+                                src="/icons/github.svg"
+                                alt="pilprod_github"
+                                width={25}
+                                height={25}
+                            />
+                        </HeaderLinkIcon>
+                        <Hidden smDown>
+                            GitHub
+                        </Hidden>
+                    </HeaderLink>
+                    <HeaderLink
+                        variant="button"
+                        color="textPrimary"
                         href="http://youtube.pilprod.com"
                     >
                         <HeaderLinkIcon>

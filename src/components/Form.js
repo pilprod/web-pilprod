@@ -26,7 +26,7 @@ const Name = (props) => {
         id='name'
         name='name'
         type='text'
-        label='Имя'
+        label='ФИО / Название компании'
         variant='outlined'
         onChange={props.handleChange}
         required
@@ -194,7 +194,7 @@ const FormComponent = () => {
             <div className={classes.form}>
                 <div className={classes.title}>
                     <Typography component="h7" variant="h4" align="center" gutterBottom>
-                        Форма для связи
+                        Свяжитесь со мной
                     </Typography>
                 </div>
                 <Box className={classes.inputWrap}>
