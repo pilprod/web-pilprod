@@ -10,7 +10,6 @@ import Footer from "./Footer";
 // Data
 // import { data } from "../data/data";
 
-
 const PageLayout = ({ children, title, description, ogImage, vkImage, url }) => {
     // Root URL
     const pageUrl = "https://www.pilprod.com/";
