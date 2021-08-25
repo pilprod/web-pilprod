@@ -44,6 +44,22 @@ const DownloadLinkIcon = styled(Box)({
     padding: '5px',
 })
 
+const DownloadLinkYandex = styled(Link)({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 'auto',
+    flexShrink: 0,
+    variant: "button",
+    color: '#0077FF',
+    fontSize: '12pt',
+})
+
+const DownloadLinkYandexIcon = styled(Box)({
+    margin: '5px',
+    padding: '5px',
+})
+
 const ContactLink = styled(Link)({
     display: 'flex',
     justifyContent: 'center',
@@ -88,17 +104,17 @@ const HomePage = () => {
                                 </DownloadLink>
                             </Grid>
                             <Grid item xs={6} md={4}>
-                                <DownloadLink href='https://disk.yandex.ru/i/s7N7ppjiq_Jbag'>
-                                    <DownloadLinkIcon>
+                                <DownloadLinkYandex href='https://disk.yandex.ru/i/s7N7ppjiq_Jbag'>
+                                    <DownloadLinkYandexIcon>
                                         <Image
                                             src="/icons/yandex-disk.svg"
                                             alt="ydisk-logo"
                                             width={30}
                                             height={30}
                                         />
-                                    </DownloadLinkIcon>
+                                    </DownloadLinkYandexIcon>
                                     <h3>Резюме-для-Яндекс.pdf</h3>
-                                </DownloadLink>
+                                </DownloadLinkYandex>
                             </Grid>
                             <Grid item xs={6} md={4}>
                                 <ContactLink href='https://www.pilprod.com/contact'>
