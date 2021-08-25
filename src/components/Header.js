@@ -120,8 +120,8 @@ const HeaderComponent = (props) => {
                             <Image
                                 src="/icons/vk.svg"
                                 alt="pilprod_vk"
-                                width={30}
-                                height={30}
+                                width={25}
+                                height={25}
                             />
                         </HeaderLinkIcon>
                         <Hidden smDown>
