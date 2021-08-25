@@ -88,6 +88,19 @@ const HomePage = () => {
                                 </DownloadLink>
                             </Grid>
                             <Grid item xs={6} md={4}>
+                                <DownloadLink href='https://disk.yandex.ru/i/s7N7ppjiq_Jbag'>
+                                    <DownloadLinkIcon>
+                                        <Image
+                                            src="/icons/yandex-disk.svg"
+                                            alt="ydisk-logo"
+                                            width={30}
+                                            height={30}
+                                        />
+                                    </DownloadLinkIcon>
+                                    <h3>Резюме-для-Яндекс.pdf</h3>
+                                </DownloadLink>
+                            </Grid>
+                            <Grid item xs={6} md={4}>
                                 <ContactLink href='https://www.pilprod.com/contact'>
                                     <ContactLinkIcon>
                                         <Image
